@@ -1,0 +1,40 @@
+﻿<Window x:Class="project.Chart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="График" Height="486.5" Width="904.5" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem x:Name="menu_File" Header="Файл" IsEnabled="False"  >
+                <MenuItem x:Name="mio" Header="Открыть файл"  ></MenuItem>
+                <MenuItem  x:Name="mip" Header="Посмотреть файл"  IsEnabled="False" ></MenuItem>
+                <MenuItem  x:Name="misave" Header="Сохранить файл" IsEnabled="False" ></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="mimain" Header="Главная"  Click="mimain_Click"></MenuItem>
+            
+            <MenuItem x:Name="menu_Graph" Header="График" IsEnabled="False"   >
+
+            </MenuItem>
+            <MenuItem x:Name="menu_Help" Header="Справка" Click="menu_Help_Click_1"   >
+
+            </MenuItem>
+            <MenuItem x:Name="menu_clear" Header="Очистить" IsEnabled="False"  >
+            </MenuItem>
+        </Menu>
+        <oxy:Plot Title="{Binding Title}" Margin="0,30,0,0">
+            <oxy:Plot.Series >
+                <oxy:LineSeries Title="Y" ItemsSource="{Binding Points}"/>
+                <oxy:LineSeries Title="Отсортированный массив Y" ItemsSource="{Binding Points2}"/>
+            </oxy:Plot.Series>
+        </oxy:Plot>
+    </Grid>
+</Window>

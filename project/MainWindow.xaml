@@ -1,0 +1,69 @@
+﻿<Window x:Class="project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:project"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="486.5" Width="904.5" Closed="Window_Closed" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid>
+        <Button x:Name="Button_createall" Content="Заполнить все массивы" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="150" Height="38" Click="Button_createall_Click"/>
+        <Button x:Name="Button_y" Content="Сгенерировать массив Y" HorizontalAlignment="Left" Margin="658,171,0,0" VerticalAlignment="Top" Width="156" Height="39" IsEnabled="False" RenderTransformOrigin="-0.049,0.812" Click="Button_y_Click"/>
+        <Button x:Name="Button_a" Content="Сгенерировать матрицу А" HorizontalAlignment="Left" Margin="54,346,0,0" VerticalAlignment="Top" Width="155" Click="Button_a_Click" Height="39" RenderTransformOrigin="0.674,0.641"/>
+        <Button x:Name="Button_y_sort" Content="Сортировать массив Y" HorizontalAlignment="Left" Margin="658,347,0,0" VerticalAlignment="Top" Width="155" Height="39" IsEnabled="False" RenderTransformOrigin="-0.049,0.812" Click="Button_y_sort_Click"/>
+        <Button x:Name="Button_create" Content="Создать график" Margin="0,0,0,10" Width="184" IsEnabled="False"  Click="Button_create_Click" HorizontalContentAlignment="Center" Height="38" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Button x:Name="Button_c" Content="Сгенерировать массив C" HorizontalAlignment="Left" Margin="343,171,0,0" VerticalAlignment="Top" Width="155" Height="39" Click="Button_c_Click" IsEnabled="False" RenderTransformOrigin="0.335,1.436"/>
+        <Button x:Name="Button_x" Content="Сгенерировать массив X" HorizontalAlignment="Left" Margin="343,347,0,0" VerticalAlignment="Top" Width="155" Height="38" Click="Button_x_Click" IsEnabled="False"/>
+        <Button x:Name="Button_fomr2" Content="Перейти к просмотру файла" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="178" Height="38" IsEnabled="False" Click="Button_fomr2_Click"/>
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem x:Name="menu_File" Header="Файл"   >
+                <MenuItem x:Name="mio" Header="Открыть файл" Click="Button_open_Click" ></MenuItem>
+                <MenuItem  x:Name="mip" Header="Посмотреть файл" Click="Button_fomr2_Click" IsEnabled="False" ></MenuItem>
+            </MenuItem>
+            <MenuItem  Header="Главная" IsEnabled="False"></MenuItem>
+           
+            <MenuItem x:Name="menu_Graph" Header="График" IsEnabled="False" Click="Button_create_Click"  >
+
+            </MenuItem>
+            <MenuItem x:Name="menu_Help" Header="Справка" Click="menu_Help_Click_1"   >
+
+            </MenuItem>
+            <MenuItem x:Name="menu_clear" Header="Очистить" Click="menu_clear_Click"   >
+
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="DataGrid_y_sort"  HorizontalAlignment="Left" Height="64" Margin="592,277,0,0" VerticalAlignment="Top" Width="284" />
+        <DataGrid x:Name="DataGrid_y"  HorizontalAlignment="Left" Height="64" Margin="592,102,0,0" VerticalAlignment="Top" Width="284" />
+        <DataGrid x:Name="DataGrid_c" Height="64" Margin="268,102,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="295" />
+        <DataGrid x:Name="DataGrid_x" Height="64" Margin="268,277,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="295"/>
+        <DataGrid x:Name="DataGrid_a"  HorizontalAlignment="Left" Height="214" Margin="10,127,0,0" VerticalAlignment="Top" Width="237" />
+        <TextBox x:Name="TextBox_R" HorizontalAlignment="Left" Height="24" Margin="433,73,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" PreviewTextInput="Double_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewKeyUp="TextBox_PreviewKeyUp" />
+        <TextBox x:Name="TextBox_C1" HorizontalAlignment="Left" Height="24" Margin="433,48,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120" PreviewTextInput="Double_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewKeyUp="TextBox_PreviewKeyUp" />
+        <TextBox x:Name="TextBox_h" HorizontalAlignment="Left" Height="24" Margin="716,56,0,0" TextWrapping="Wrap" Text="0,1" VerticalAlignment="Top" Width="120" PreviewTextInput="Double_PreviewTextInput" RenderTransformOrigin="0.262,0.438" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewKeyUp="TextBox_PreviewKeyUp" />
+        <TextBox x:Name="TextBox_a1" HorizontalAlignment="Left" Height="24" Margin="114,72,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewKeyUp="TextBox_PreviewKeyUp" />
+        <TextBox x:Name="TextBox_a2" HorizontalAlignment="Left" Height="24" Margin="114,98,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120" PreviewTextInput="Int_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewKeyUp="TextBox_PreviewKeyUp" />
+        <TextBox x:Name="TextBox_m" HorizontalAlignment="Left" Height="23" Margin="114,48,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.471,0.609" TextChanged="TextBox_m_TextChanged" PreviewKeyDown="TextBox_PreviewKeyDown" PreviewKeyUp="TextBox_PreviewKeyUp" PreviewTextInput="Int_PreviewTextInput"/>
+        <TextBox x:Name="TextBox_b" HorizontalAlignment="Left" Height="24" Margin="451,248,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="120" PreviewTextInput="Double_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyUp" PreviewKeyUp="TextBox_PreviewKeyUp" />
+        <Label Content="Размерность:" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Вспомогательная переменная:" HorizontalAlignment="Left" Margin="268,246,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,0.538"/>
+
+        <Label Content="Верхняя граница:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.581,0.577"/>
+        <Label Content="Нижняя граница:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
+
+
+        <Label Content="Разность ариф. прогрессии" HorizontalAlignment="Left" Margin="268,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,0.538"/>
+        <Label Content="Первый элемент " HorizontalAlignment="Left" Margin="268,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,0.538"/>
+
+
+        <Label Content="Шаг интерполяции:" HorizontalAlignment="Left" Margin="592,52,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.692"/>
+
+
+        <GroupBox Header="Матрица А" HorizontalAlignment="Left" Height="371" Margin="5,25,0,0" VerticalAlignment="Top" Width="253"/>
+        <GroupBox Header="Массив С" HorizontalAlignment="Left" Height="193" Margin="263,25,0,0" VerticalAlignment="Top" Width="311"/>
+        <GroupBox Header="Массив Х" HorizontalAlignment="Left" Height="173" Margin="263,223,0,0" VerticalAlignment="Top" Width="311"/>
+        <GroupBox Header="Массив Y" HorizontalAlignment="Left" Height="193" Margin="579,25,0,0" VerticalAlignment="Top" Width="311"/>
+        <GroupBox Header="Отсортированный Массив Y" HorizontalAlignment="Left" Height="173" Margin="579,223,0,0" VerticalAlignment="Top" Width="311"/>
+
+    </Grid>
+</Window>
